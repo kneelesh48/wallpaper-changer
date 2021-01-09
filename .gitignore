@@ -1,3 +1,4 @@
 /.ipynb_checkpoints
 /Images
-/Untitled.ipynb
+*.ipynb
+# /config.py

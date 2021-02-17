@@ -1,5 +1,6 @@
 wallpaper_subs=[
 ('EarthPorn', 20820398),
+ ('NatureIsFuckingLit',4541833),
  ('wallpaper', 1617000),
 #  ('SpacePorn', 1391019),
  ('CityPorn', 658981),

@@ -5,3 +5,4 @@
 *.ipynb
 *.log
 # /config.py
+/downloaded_links.txt

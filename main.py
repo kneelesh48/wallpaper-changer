@@ -37,7 +37,9 @@ def wallpaper_changer():
             submission=data['data']['children'][(n+i)%returned_len]
             img_url=submission['data']['url']
             logger.info(img_url)
-            if img_url in open(f'{cd}/downloaded_links.txt').read().split('\n'): #File already downloaded
+            file_name=img_url.split('/')[-1]
+            if file_name in open(f'{cd}/downloaded_links.txt').read().split('\n'): #File already downloaded
+            # if file_name in os.listdir(f'{cd}/Images'):
                 logger.info('File already downloaded')
                 continue
             if submission['data']['post_hint']!='image': #url not image
@@ -55,14 +57,13 @@ def wallpaper_changer():
                 logger.info('Low resolution image')
                 continue
             logger.info('Downloading file...')
-            filepath=f"Images/{img_url.split('/')[-1]}"
-            with open(filepath,'wb') as f:
+            with open(f"{cd}/Images/{file_name}",'wb') as f:
                 f.write(requests.get(img_url).content)
             with open(f'{cd}/downloaded_links.txt','a') as f:
-                print(img_url,file=f)
+                print(file_name,file=f)
             logger.info('File downloaded!')
 
-            abs_img_path=f"{os.getcwd()}/{filepath}"
+            abs_img_path=f"{cd}/Images/{file_name}"
             if platform.system()=='Windows':
                 ctypes.windll.user32.SystemParametersInfoW(20, 0, abs_img_path, 0)
                 winsound.MessageBeep()

@@ -5,9 +5,12 @@ import ctypes
 import logging
 import platform
 import winsound
+from notifypy import Notify
 from config import wallpaper_subs
 
 cd=os.path.dirname(os.path.abspath(__file__))
+
+notification = Notify(default_notification_title="Windows Wallpaper Changer")
 
 def logger_config():
     logger = logging.getLogger(__name__)
@@ -39,7 +42,6 @@ def wallpaper_changer():
             logger.info(img_url)
             file_name=img_url.split('/')[-1]
             if file_name in open(f'{cd}/downloaded_links.txt').read().split('\n'): #File already downloaded
-            # if file_name in os.listdir(f'{cd}/Images'):
                 logger.info('File already downloaded')
                 continue
             if submission['data']['post_hint']!='image': #url not image
@@ -56,6 +58,7 @@ def wallpaper_changer():
             if not (width>=1280 and height>=720): #Low resolution
                 logger.info('Low resolution image')
                 continue
+            title=submission['data']['title']
             logger.info('Downloading file...')
             with open(f"{cd}/Images/{file_name}",'wb') as f:
                 f.write(requests.get(img_url).content)
@@ -66,7 +69,9 @@ def wallpaper_changer():
             abs_img_path=f"{cd}/Images/{file_name}"
             if platform.system()=='Windows':
                 ctypes.windll.user32.SystemParametersInfoW(20, 0, abs_img_path, 0)
-                winsound.MessageBeep()
+                
+                notification.message = f"{title} from r/{sub} set as wallpaper"
+                notification.send()
             else:
                 logger.info('Not implemented')
             logger.info('Wallpaper Changed!\n')
@@ -78,3 +83,4 @@ if __name__ == '__main__':
         wallpaper_changer()
     except Exception as exception:
         logger.exception(f"{type(exception).__name__}: {exception}")
+        winsound.MessageBeep()

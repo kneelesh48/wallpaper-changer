@@ -41,8 +41,10 @@ def wallpaper_changer():
             img_url=submission['data']['url']
             logger.info(img_url)
             file_name=img_url.split('/')[-1]
-            if file_name in open(f'{cd}/downloaded_links.txt').read().split('\n'): #File already downloaded
+            if file_name in open(f'{cd}/downloaded_images.txt').read().split('\n'): #File already downloaded
                 logger.info('File already downloaded')
+                continue
+            if 'post_hint' not in submission['data']:
                 continue
             if submission['data']['post_hint']!='image': #url not image
                 logger.info('File not image')
@@ -62,7 +64,7 @@ def wallpaper_changer():
             logger.info('Downloading file...')
             with open(f"{cd}/Images/{file_name}",'wb') as f:
                 f.write(requests.get(img_url).content)
-            with open(f'{cd}/downloaded_links.txt','a') as f:
+            with open(f'{cd}/downloaded_images.txt','a') as f:
                 print(file_name,file=f)
             logger.info('File downloaded!')
 
@@ -81,6 +83,10 @@ def wallpaper_changer():
 if __name__ == '__main__':
     try:
         wallpaper_changer()
+    except requests.ConnectionError:
+        logger.error("No internet, can't download wallpaper\n")
+        notification.message="No internet, can't download wallpaper"
+        notification.send()
     except Exception as exception:
-        logger.exception(f"{type(exception).__name__}: {exception}")
+        logger.error(f"{type(exception).__name__}: {exception}")
         winsound.MessageBeep()

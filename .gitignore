@@ -4,9 +4,5 @@
 /Images
 *.ipynb
 *.log
-# /config.py
-/downloaded_links.txt
-
-node_modules
-package-lock.json
-package.json
+downloaded_images.txt
+main.js

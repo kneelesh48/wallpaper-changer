@@ -4,11 +4,6 @@
 
 Downloads wallpapers from top wallpaper subreddits, chosen randomly and sets it as desktop wallpaper.
 
-&#x200B;
-
-* Includes powershell script to add program to Task scheduler
-* Includes powershell script to add a desktop shortcut
-
 ## Installation
 * Ensure that you have python3 installed and present in $PATH. Run `python --version` in powershell to check
 * Download the code and place the folder is a suitable place

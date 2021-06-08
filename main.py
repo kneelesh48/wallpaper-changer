@@ -10,6 +10,9 @@ from config import wallpaper_subs
 
 cd=os.path.dirname(os.path.abspath(__file__))
 
+if not os.path.exists(f'{cd}/Images'):
+    os.makedirs(f'{cd}/Images')
+
 notification = Notify(default_notification_title="Windows Wallpaper Changer")
 
 def logger_config():

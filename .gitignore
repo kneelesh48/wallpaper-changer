@@ -1,8 +1,7 @@
-/.ipynb_checkpoints
-/__pycache__
-/.vscode
 /Images
+/__pycache__
+/.ipynb_checkpoints
+/.vscode
 *.ipynb
 *.log
 downloaded_images.txt
-main.js

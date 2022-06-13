@@ -2,7 +2,7 @@
 pip install -r requirements.txt
 
 # Create desktop shortcut
-echo "#\!/bin/zsh" > ~/Desktop/test.sh
+echo "#\!/bin/zsh" > ~/Desktop/wallpaper-changer.sh
 echo "cd $(pwd) && python3 main.py" >> ~/Desktop/wallpaper-changer.sh
 chmod +x ~/Desktop/wallpaper-changer.sh
 

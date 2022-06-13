@@ -17,7 +17,7 @@ Write-Output "Finished creating desktop shortcut"
 
 # Add program to Task Scheduler
 $taskName = "Wallpaper changer"
-$trigger =  New-ScheduledTaskTrigger -Daily -At 9am
+$trigger =  New-ScheduledTaskTrigger -Daily -At 11am
 $action = New-ScheduledTaskAction -Execute 'C:\ProgramData\Anaconda3\pythonw.exe' -Argument '.\main.py' -WorkingDirectory $(Get-Location)
 
 $taskExists = Get-ScheduledTask | Where-Object {$_.TaskName -like $taskName }

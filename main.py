@@ -4,8 +4,9 @@ import os
 import ctypes
 import logging
 import platform
-import winsound
+# import winsound
 from notifypy import Notify
+from appscript import app, mactypes
 from config import wallpaper_subs
 
 cd=os.path.dirname(os.path.abspath(__file__))
@@ -77,6 +78,11 @@ def wallpaper_changer():
                 
                 notification.message = f"{title} from r/{sub} set as wallpaper"
                 notification.send()
+            elif platform.system()=='Darwin':
+                app('Finder').desktop_picture.set(mactypes.File(f"./Images/{file_name}"))
+
+                notification.message = f"{title} from r/{sub} set as wallpaper"
+                notification.send()
             else:
                 logger.info('Not implemented')
             logger.info('Wallpaper Changed!\n')
@@ -92,4 +98,4 @@ if __name__ == '__main__':
         notification.send()
     except Exception as exception:
         logger.error(f"{type(exception).__name__}: {exception}")
-        winsound.MessageBeep()
+        # winsound.MessageBeep()

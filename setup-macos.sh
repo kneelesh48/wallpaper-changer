@@ -1,6 +1,9 @@
 # Install required packages
 pip install -r requirements.txt
 
+# Create downloaded_images.txt
+touch downloaded_images.txt
+
 # Create desktop shortcut
 echo "#\!/bin/zsh" > ~/Desktop/wallpaper-changer.sh
 echo "cd $(pwd) && python3 main.py" >> ~/Desktop/wallpaper-changer.sh

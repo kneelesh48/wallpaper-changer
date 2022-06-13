@@ -1,6 +1,9 @@
 # Install required packages
 pip install -r requirements.txt
 
+# Create downloaded_images.txt
+ni downloaded_images.txt
+
 # Create desktop shortcut
 $ShortcutFile="$($home)\Desktop\wallpaper changer.lnk"
 

@@ -3,8 +3,8 @@ pip install -r requirements.txt
 
 # Create desktop shortcut
 echo "#\!/bin/zsh" > ~/Desktop/test.sh
-echo "cd $(pwd) && python3 main.py" >> ~/Desktop/test.sh
-chmod +x ~/Desktop/test.sh
+echo "cd $(pwd) && python3 main.py" >> ~/Desktop/wallpaper-changer.sh
+chmod +x ~/Desktop/wallpaper-changer.sh
 
 # Add program to crontab
 #write out current crontab

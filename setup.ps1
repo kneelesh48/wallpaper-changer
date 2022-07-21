@@ -29,4 +29,5 @@ if($taskExists) {
 Register-ScheduledTask -TaskName $taskName -Trigger $trigger -Action $action -Description "Changes wallpaper everyday at a specified time"
 
 Write-Output "Finished adding program to Task Scheduler"
+
 Read-Host "Press Enter to continue"

@@ -5,3 +5,4 @@
 *.ipynb
 *.log
 downloaded_images.txt
+.DS_Store

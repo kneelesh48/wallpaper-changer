@@ -1,1 +1,1 @@
-Notify
+notify-py

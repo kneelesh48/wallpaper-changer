@@ -5,7 +5,7 @@ wallpaper_subs=[
 #  ('SpacePorn', 1391019),
  ('CityPorn', 658981),
  ('wallpapers', 605178),
- ('SkyPorn', 179753),
+#  ('SkyPorn', 179753),
 #  ('BotanicalPorn', 141254),
 #  ('WaterPorn', 96425),
 #  ('VillagePorn', 73553),

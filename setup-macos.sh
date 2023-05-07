@@ -1,5 +1,6 @@
 # Install required packages
 pip install -r requirements.txt
+pip install appscript
 
 # Create downloaded_images.txt
 touch downloaded_images.txt

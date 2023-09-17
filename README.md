@@ -1,10 +1,15 @@
 # Wallpaper changer for Windows and MacOS
 
-&#x200B;
-
 Downloads wallpapers from top wallpaper subreddits, chosen randomly and sets it as desktop wallpaper.
 
 ## Installation
-* Ensure that you have python3 installed and present in $PATH. Run `python --version` in terminal to check
-* Download the code and place the folder is a suitable place
-* Run `setup-windows.ps1` in Powershell (for Windows) or run `setup-macos.sh` in Terminal (for macOS). This will install required python packages, add a desktop shortcut and add the program to Task Scheduler/crontab to run everyday at 11 am.
+* Clone the Repository `git clone https://github.com/kneelesh48/wallpaper-changer.git`
+### Windows
+* Run `setup-windows.bat` 
+### MacOS
+* Run `setup-macos.sh`
+
+This will 
+* install required python packages
+* add a desktop shortcut
+* add the program to Task Scheduler to run everyday at 11 am (only on Windows)

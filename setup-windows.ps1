@@ -19,7 +19,7 @@ $Shortcut.Save()
 Write-Output "Finished creating desktop shortcut"
 
 # Add program to Task Scheduler
-$taskName = "Wallpaper changer"
+$taskName = "Wallpaper Changer"
 $trigger =  New-ScheduledTaskTrigger -Daily -At 11am
 $action = New-ScheduledTaskAction -Execute $(get-command pythonw).Source -Argument '.\main.py' -WorkingDirectory $(Get-Location)
 

@@ -1,9 +1,9 @@
+touch downloaded_images.txt
+mkdir Images
+
 # Install required packages
 pip install -r requirements.txt
 pip install appscript
-
-# Create downloaded_images.txt
-touch downloaded_images.txt
 
 # Create desktop shortcut
 echo "#\!/bin/zsh" > ~/Desktop/wallpaper-changer.sh
@@ -19,6 +19,5 @@ chmod +x ~/Desktop/wallpaper-changer.sh
 # crontab mycron
 # rm mycron
 
-# Schedule running the bash script on the desktop using iCalendar.
-# This is a workaround for the fact that crontab does not have access to Finder
-# cron does not have access to Finder and there is no way to allow cron access to Finder
+# Schedule running the bash script using iCalendar
+# This is a workaround because crontab does not have permission to access Finder on MacOS

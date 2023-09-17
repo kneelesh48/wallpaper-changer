@@ -1,8 +1,8 @@
+New-Item downloaded_images.txt
+New-Item Images -ItemType Directory
+
 # Install required packages
 pip install -r requirements.txt
-
-# Create downloaded_images.txt
-New-Item downloaded_images.txt
 
 # Create desktop shortcut
 $ShortcutFile="$($home)\Desktop\wallpaper changer.lnk"
@@ -21,7 +21,7 @@ Write-Output "Finished creating desktop shortcut"
 # Add program to Task Scheduler
 $taskName = "Wallpaper changer"
 $trigger =  New-ScheduledTaskTrigger -Daily -At 11am
-$action = New-ScheduledTaskAction -Execute 'C:\ProgramData\Anaconda3\pythonw.exe' -Argument '.\main.py' -WorkingDirectory $(Get-Location)
+$action = New-ScheduledTaskAction -Execute $(get-command pythonw).Source -Argument '.\main.py' -WorkingDirectory $(Get-Location)
 
 $taskExists = Get-ScheduledTask | Where-Object {$_.TaskName -like $taskName }
 if($taskExists) {
